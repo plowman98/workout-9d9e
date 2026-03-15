@@ -36,3 +36,6 @@ ENV/
 
 # Test caches
 .pytest_cache/
+
+# Training log (personal data)
+training_logs/log.tsv
