@@ -105,7 +105,7 @@ Examples: `12-user-auth`, `45-fix-header-style`
 ### 3.3 Merging
 
 All branches must be merged via a Pull Request (PR).
-Direct commits to `main` are prohibited.
+Direct commits to `main` are prohibited — no exceptions, regardless of how trivial the change appears.
 
 ## 4. Pull Request Workflow
 
@@ -137,6 +137,7 @@ Epic PRs are created when merging an Epic Branch into `main`.
 - Commit messages must be written in English.
 - This rule applies to Epic, Task, and Fast Track Issues.
 - Commits that do not reference an Issue are prohibited.
+- **One logical change per commit.** Do not bundle unrelated changes into a single commit. Each commit should represent one intention that stands alone.
 
 **Examples:**
 
