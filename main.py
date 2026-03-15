@@ -1,7 +1,22 @@
+import subprocess
 import tempfile
 import webbrowser
 from src.load import load_log
 from src.plot import build_figures
+
+
+def _open_browser(path: str) -> None:
+    try:
+        with open("/proc/version") as f:
+            is_wsl = "microsoft" in f.read().lower()
+    except OSError:
+        is_wsl = False
+
+    if is_wsl:
+        win_path = subprocess.check_output(["wslpath", "-w", path]).decode().strip()
+        subprocess.run(["explorer.exe", win_path])
+    else:
+        webbrowser.open(f"file://{path}")
 
 
 def main() -> None:
@@ -20,7 +35,7 @@ def main() -> None:
         f.write(html)
         path = f.name
 
-    webbrowser.open(f"file://{path}")
+    _open_browser(path)
 
 
 if __name__ == "__main__":
